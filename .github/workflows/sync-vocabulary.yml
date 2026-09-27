@@ -1,0 +1,39 @@
+name: Sync published vocabulary from Google Sheets
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 * * * *"
+permissions:
+  contents: write
+concurrency:
+  group: english-library-sync
+  cancel-in-progress: false
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Export approved public vocabulary
+        env:
+          PUBLIC_CSV_URL: ${{ vars.PUBLIC_CSV_URL }}
+        run: python scripts/sync_from_sheet.py
+      - name: Commit only when published data changed
+        run: |
+          if test -f data/library.json; then
+            git add data/library.json
+            if ! git diff --cached --quiet; then
+              git config user.name "github-actions[bot]"
+              git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+              git commit -m "Sync published English Library vocabulary"
+              git push
+            else
+              echo "No published-data changes."
+            fi
+          else
+            echo "No source URL configured yet; nothing to commit."
+          fi

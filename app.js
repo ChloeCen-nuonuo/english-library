@@ -1,13 +1,13 @@
 "use strict";
-// V1.0 design preview only: local examples, NOT a live Google Sheets connection.
-const demoWords=[
+// Demo examples remain visible only until the approved published data feed is configured.
+let demoWords=[
 {word:"rabbit",pos:"noun",meaning:"a small animal with long ears",sentence:"The rabbit is eating grass.",picture:"🐰",pictureLabel:"A rabbit",categories:["Animals","Pets"]},
 {word:"celebrate",pos:"verb",meaning:"to do something special for a happy event",sentence:"We celebrate my birthday with a party.",picture:"🎉",pictureLabel:"A celebration",categories:["Actions","Celebrations & Traditions"]},
 {word:"special",pos:"adjective",meaning:"important or different in a good way",sentence:"This gift is special to me.",picture:"💝",pictureLabel:"A special gift",categories:["Describing Words"]},
 {word:"splendid",pos:"adjective",meaning:"very good",sentence:"We had a splendid time.",picture:"🌈",pictureLabel:"A splendid day",categories:["Describing Words"]},
 {word:"wing",pos:"noun",meaning:"a body part a bird uses to fly",sentence:"The bird has two wings.",picture:"🐦",pictureLabel:"A bird with wings",categories:["Animals","Body Parts"]}
 ];
-const categoryLabels=[["All topics","✨"],["Animals","🐶"],["Pets","🐱"],["Actions","🏃"],["Celebrations & Traditions","🎉"],["Describing Words","🌟"],["Body Parts","🦶"]];
+let categoryLabels=[["All topics","✨"],["Animals","🐶"],["Pets","🐱"],["Actions","🏃"],["Celebrations & Traditions","🎉"],["Describing Words","🌟"],["Body Parts","🦶"]];
 const pageIds=["home","dictionary","categories","spelling","frequency","study"];
 function make(tag,cls,text){const el=document.createElement(tag);if(cls)el.className=cls;if(text!==undefined)el.textContent=text;return el;}
 function speak(word){
@@ -26,7 +26,11 @@ function makeWordCard(item){
  btn.type="button";btn.setAttribute("aria-label","Hear "+item.word);btn.addEventListener("click",()=>speak(item.word));
  actions.append(btn);content.append(actions);
  const picture=make("div","word-picture");picture.setAttribute("role","img");picture.setAttribute("aria-label",item.pictureLabel);
- picture.append(make("span","word-picture-emoji",item.picture),make("span","word-picture-label","Picture"));
+ if(item.pictureUrl){
+   const img=make("img","word-picture-img");img.src=item.pictureUrl;img.alt=item.pictureLabel || item.word;
+   img.loading="lazy";img.referrerPolicy="no-referrer";img.addEventListener("error",()=>{img.replaceWith(make("span","word-picture-emoji","🖼️"));},{once:true});
+   picture.append(img,make("span","word-picture-label","Picture"));
+ }else{picture.append(make("span","word-picture-emoji",item.picture || "🖼️"),make("span","word-picture-label","Picture"));}
  article.append(content,picture);return article;
 }
 function paintWords(gridId,emptyId,words){
