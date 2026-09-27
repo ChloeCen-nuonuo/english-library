@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#f8f8f2">
+<meta name="description" content="A friendly English learning library with five learning adventures.">
+<title>My English Library</title>
+<link rel="stylesheet" href="./styles.css">
+<script src="./app.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="site-shell">
+<header class="site-header">
+  <a class="brand" href="#home" aria-label="My English Library home"><span class="brand-mark" aria-hidden="true">📖</span><span>My English <strong>Library</strong><small>Read · Learn · Practice</small></span></a>
+  <nav class="top-nav" aria-label="Main navigation"><a href="#home" data-nav="home">Home</a><a href="#dictionary" data-nav="dictionary">Dictionary</a><a href="#study" data-nav="study">Word Study</a></nav>
+  <a class="header-cta" href="#home-modules">Explore <span aria-hidden="true">↗</span></a>
+</header>
+<main id="main">
+<section id="home" class="screen" aria-labelledby="home-heading">
+  <div class="hero">
+    <div class="hero-copy"><p class="eyebrow"><span class="eyebrow-dot"></span>A LITTLE LIBRARY FOR BIG DISCOVERIES</p><h1 id="home-heading">A world of words,<br><em>one card at a time.</em></h1><p class="hero-description">Look, listen, read and explore. Pick a topic and learn at your own pace!</p><a class="primary-button" href="#home-modules">Let's explore <span aria-hidden="true">→</span></a></div>
+    <div class="hero-art" aria-hidden="true"><span class="art-bubble bubble-abc">Aa</span><span class="art-bubble bubble-star">★</span><div class="art-book"><div class="art-page left-page"><span class="art-word">hello!</span><span class="art-little-lines">✿ ✿ ✿</span></div><div class="art-page right-page"><span class="art-rabbit">🐰</span><span class="art-word art-word-small">rabbit</span></div></div><span class="art-sparkle art-sparkle-one">✦</span><span class="art-sparkle art-sparkle-two">✳</span></div>
+  </div>
+  <div class="section-intro" id="home-modules"><div><p class="section-kicker">YOUR LEARNING SHELF</p><h2>What shall we learn today?</h2><p>Choose one of the five adventures below.</p></div><span class="shelf-deco" aria-hidden="true">✦ ✳ ✦</span></div>
+  <div class="module-grid" aria-label="Learning modules">
+    <a class="module-card theme-mint" href="#dictionary"><div class="module-top"><span class="module-number">01 / EXPLORE</span><span class="module-arrow" aria-hidden="true">↗</span></div><span class="module-illustration" aria-hidden="true">📖<span class="mini-orb">A</span></span><div class="module-copy"><h3>My First Dictionary</h3><p>Discover new words with meanings, sentences and pictures.</p><span class="module-pill">Visual Vocabulary Cards</span></div></a>
+    <a class="module-card theme-peach" href="#categories"><div class="module-top"><span class="module-number">02 / DISCOVER</span><span class="module-arrow" aria-hidden="true">↗</span></div><span class="module-illustration" aria-hidden="true">🗂️<span class="mini-orb">★</span></span><div class="module-copy"><h3>Word Categories</h3><p>Explore words about animals, food, feelings and more.</p><span class="module-pill">Explore by Topic</span></div></a>
+    <a class="module-card theme-blue" href="#spelling"><div class="module-top"><span class="module-number">03 / SOUND IT OUT</span><span class="module-arrow" aria-hidden="true">↗</span></div><span class="module-illustration" aria-hidden="true">🔤<span class="mini-orb">a_e</span></span><div class="module-copy"><h3>Sound-Spelling Cards</h3><p>Hear sounds, spot patterns and build your spelling skills.</p><span class="module-pill">Phonics & Spelling</span></div></a>
+    <a class="module-card theme-yellow" href="#frequency"><div class="module-top"><span class="module-number">04 / PRACTICE</span><span class="module-arrow" aria-hidden="true">↗</span></div><span class="module-illustration" aria-hidden="true">⭐<span class="mini-orb">the</span></span><div class="module-copy"><h3>High-Frequency Words</h3><p>See it, say it, and recognize familiar words faster.</p><span class="module-pill">Sight Word Recognition</span></div></a>
+    <a class="module-card theme-purple" href="#study"><div class="module-top"><span class="module-number">05 / CONNECT</span><span class="module-arrow" aria-hidden="true">↗</span></div><span class="module-illustration" aria-hidden="true">🧩<span class="mini-orb">un-</span></span><div class="module-copy"><h3>Word Study</h3><p>Find word friends, opposites and the pieces that make words.</p><span class="module-pill">5 Learning Topics</span></div></a>
+  </div>
+  <div class="bottom-note"><span aria-hidden="true">🌱</span><p><strong>Little steps add up.</strong> Open a card, try a word and come back whenever you like.</p></div>
+</section>
+<section id="dictionary" class="screen" hidden aria-labelledby="dictionary-heading">
+ <div class="subpage-heading theme-mint"><a class="back-link" href="#home">← Back to library</a><span class="subpage-emoji" aria-hidden="true">📖</span><p class="section-kicker">01 / VISUAL VOCABULARY</p><h1 id="dictionary-heading">My First Dictionary</h1><p>Five things to explore: word, part of speech, meaning, sentence and picture.</p></div>
+ <div class="demo-notice">✨ This is a design preview with example words. Google Sheets is not connected yet.</div>
+ <div class="toolbar"><label for="dictionary-search">Find a word</label><input id="dictionary-search" type="search" placeholder="Try rabbit, special, wing..." autocomplete="off"></div>
+ <div id="dictionary-grid" class="word-grid" aria-live="polite"></div><p id="dictionary-empty" class="empty-state" hidden>No example words found. Try another search!</p>
+</section>
+<section id="categories" class="screen" hidden aria-labelledby="categories-heading">
+ <div class="subpage-heading theme-peach"><a class="back-link" href="#home">← Back to library</a><span class="subpage-emoji" aria-hidden="true">🗂️</span><p class="section-kicker">02 / EXPLORE BY TOPIC</p><h1 id="categories-heading">Word Categories</h1><p>One dictionary, many ways to find a word.</p></div>
+ <div class="demo-notice">✨ Example categories use the same sample words as My First Dictionary.</div>
+ <div id="category-buttons" class="category-buttons" aria-label="Choose a word category"></div><h2 id="category-title" class="list-heading">All topics</h2><div id="category-grid" class="word-grid" aria-live="polite"></div><p id="category-empty" class="empty-state" hidden>We will add words here soon!</p>
+</section>
+<section id="spelling" class="screen" hidden aria-labelledby="spelling-heading">
+ <div class="subpage-heading theme-blue"><a class="back-link" href="#home">← Back to library</a><span class="subpage-emoji" aria-hidden="true">🔤</span><p class="section-kicker">03 / PHONICS & SPELLING</p><h1 id="spelling-heading">Sound-Spelling Cards</h1><p>Look for a sound pattern. Hear it. Say it. Spell it!</p></div>
+ <div class="demo-notice">✨ A sample learning card; more phonics sets will be added later.</div>
+ <article class="practice-card"><div class="practice-card-header"><span class="tag">LONG A · a_e</span><button class="listen-button" type="button" data-speak="cake" aria-label="Hear cake">🔊 Hear word</button></div><div class="spelling-example"><span>c</span><span class="highlight-letter">a</span><span>k</span><span class="highlight-letter">e</span></div><p class="centered muted">The final silent <strong>e</strong> makes <strong>a</strong> say its name.</p><div class="practice-illustration" role="img" aria-label="Birthday cake">🎂</div><div class="practice-detail"><strong>Meaning</strong><p>A sweet food often eaten at a celebration.</p></div><div class="practice-detail"><strong>Spelling strategy</strong><p>c + a + k + e → cake</p></div></article>
+</section>
+<section id="frequency" class="screen" hidden aria-labelledby="frequency-heading">
+ <div class="subpage-heading theme-yellow"><a class="back-link" href="#home">← Back to library</a><span class="subpage-emoji" aria-hidden="true">⭐</span><p class="section-kicker">04 / SIGHT WORD RECOGNITION</p><h1 id="frequency-heading">High-Frequency Words</h1><p>Tap a word, listen and say it aloud.</p></div>
+ <div class="demo-notice">✨ These are sample practice words, not an assessment of any student's progress.</div>
+ <div class="sight-grid" aria-label="Example sight words"><button type="button" data-speak="the">the <span>🔊</span></button><button type="button" data-speak="said">said <span>🔊</span></button><button type="button" data-speak="was">was <span>🔊</span></button><button type="button" data-speak="have">have <span>🔊</span></button><button type="button" data-speak="come">come <span>🔊</span></button><button type="button" data-speak="because">because <span>🔊</span></button></div><p class="practice-hint">Try it: look at a word, read it aloud, then tap to listen.</p>
+</section>
+<section id="study" class="screen" hidden aria-labelledby="study-heading">
+ <div class="subpage-heading theme-purple"><a class="back-link" href="#home">← Back to library</a><span class="subpage-emoji" aria-hidden="true">🧩</span><p class="section-kicker">05 / VOCABULARY STRATEGIES</p><h1 id="study-heading">Word Study</h1><p>Words can be friends, opposites, or made from smaller parts.</p></div>
+ <div class="demo-notice">✨ Explore all five mini lessons. These are examples for the homepage preview.</div>
+ <div class="study-tabs" role="tablist" aria-label="Word Study topics">
+  <button type="button" role="tab" id="tab-synonyms" aria-controls="panel-synonyms" aria-selected="true" data-study-tab="synonyms">Synonyms</button>
+  <button type="button" role="tab" id="tab-antonyms" aria-controls="panel-antonyms" aria-selected="false" data-study-tab="antonyms">Antonyms</button>
+  <button type="button" role="tab" id="tab-prefixes" aria-controls="panel-prefixes" aria-selected="false" data-study-tab="prefixes">Prefixes</button>
+  <button type="button" role="tab" id="tab-base" aria-controls="panel-base" aria-selected="false" data-study-tab="base">Base Words</button>
+  <button type="button" role="tab" id="tab-suffixes" aria-controls="panel-suffixes" aria-selected="false" data-study-tab="suffixes">Suffixes</button>
+ </div>
+ <div class="study-panel" id="panel-synonyms" role="tabpanel" aria-labelledby="tab-synonyms"><span class="study-emoji" aria-hidden="true">🤝</span><p class="section-kicker">WORDS WITH SIMILAR MEANINGS</p><h2>happy <span>↔</span> glad</h2><p>These words have almost the same meaning.</p><div class="lesson-example">I am <strong>happy</strong>. &nbsp; I am <strong>glad</strong>.</div></div>
+ <div class="study-panel" id="panel-antonyms" role="tabpanel" aria-labelledby="tab-antonyms" hidden><span class="study-emoji" aria-hidden="true">↔️</span><p class="section-kicker">WORDS WITH OPPOSITE MEANINGS</p><h2>happy <span>↔</span> sad</h2><p>These words have opposite meanings.</p><div class="lesson-example">😊 Happy &nbsp;&nbsp; 😢 Sad</div></div>
+ <div class="study-panel" id="panel-prefixes" role="tabpanel" aria-labelledby="tab-prefixes" hidden><span class="study-emoji" aria-hidden="true">🧱</span><p class="section-kicker">ADD TO THE BEGINNING</p><h2><mark>un-</mark> + happy = unhappy</h2><p>The prefix <strong>un-</strong> can mean “not.”</p><div class="lesson-example">happy → <strong>unhappy</strong></div></div>
+ <div class="study-panel" id="panel-base" role="tabpanel" aria-labelledby="tab-base" hidden><span class="study-emoji" aria-hidden="true">🌱</span><p class="section-kicker">FIND THE BASE WORD</p><h2>help → helpful</h2><p><strong>help</strong> is the base word inside <strong>helpful</strong>.</p><div class="lesson-example">help · helper · helpful · helpless</div></div>
+ <div class="study-panel" id="panel-suffixes" role="tabpanel" aria-labelledby="tab-suffixes" hidden><span class="study-emoji" aria-hidden="true">🧱</span><p class="section-kicker">ADD TO THE END</p><h2>help + <mark>-ful</mark> = helpful</h2><p>The suffix <strong>-ful</strong> can mean “full of” or “having.”</p><div class="lesson-example">You are very <strong>helpful</strong>!</div></div>
+</section>
+</main>
+<footer class="site-footer"><span>✳ Made for curious learners</span><span>My English Library · V1.0 Preview</span></footer>
+</div><div id="audio-status" class="sr-only" role="status" aria-live="polite"></div>
+</body></html>
